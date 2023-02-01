@@ -65,7 +65,7 @@ class PolyclinicsController extends Controller
     public function edit($id)
     {
         $polyclinic = Polyclinics::find($id);
-        return view('polyclinic.edit', compact('polyclinic'));
+        return view('polyclinics.edit', compact('polyclinic'));
     }
 
     /**

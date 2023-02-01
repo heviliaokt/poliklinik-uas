@@ -29,7 +29,7 @@
             <td>{{ $polyclinic->name }}</td>
             <td>
                 <a href="{{ route('polyclinics.show', $polyclinic->id) }}" title="Lihat Data Dokter">
-                    {{ count($polyclinic->doctor) }}
+                    {{ count(array($polyclinic->doctor)) }}
                 </a>
             </td>
             <td>

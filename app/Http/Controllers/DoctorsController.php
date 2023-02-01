@@ -26,8 +26,9 @@ class DoctorsController extends Controller
      */
     public function create()
     {
+        $kode = Doctors::registration_code();
         $polyclinics = Polyclinics::all();
-        return view('doctors.create', compact('polyclinics'));
+        return view('doctors.create', compact('polyclinics'), ['registration_code' => $kode]);
     }
 
     /**
