@@ -50,9 +50,12 @@ class PatientsController extends Controller
      * @param  \App\Patients  $patients
      * @return \Illuminate\Http\Response
      */
-    public function show(Patients $patients)
+    public function show($id)
     {
-        //
+        $polyclinics = Polyclinics::all();
+        $doctors = Doctors::all();
+        $patients = patients::find($id);
+        return view('patients.show', compact('doctors', 'polyclinics', 'patients'));
     }
 
     /**

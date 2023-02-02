@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Polyclinics;
+use App\Doctors; 
 use Illuminate\Http\Request;
 
 class PolyclinicsController extends Controller
@@ -14,7 +15,7 @@ class PolyclinicsController extends Controller
      */
     public function index()
     {
-        $polyclinics = Polyclinics::orderBy('id', 'desc')->get();
+        $polyclinics = Polyclinics::orderBy('id','desc')->get();
         return view('polyclinics.index', compact('polyclinics'));
     }
 
@@ -51,9 +52,11 @@ class PolyclinicsController extends Controller
      * @param  \App\Polyclinics  $polyclinics
      * @return \Illuminate\Http\Response
      */
-    public function show(Polyclinics $polyclinics)
+    public function show($id)
     {
-        //
+        $doctors = Doctors::all();
+        $polyclinics = polyclinics::find($id);
+        return view ('polyclinics.show', compact('doctors'));
     }
 
     /**

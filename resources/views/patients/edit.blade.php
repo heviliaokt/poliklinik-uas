@@ -14,27 +14,28 @@
 <div class="card mt-3">
 
 <div class="card-header">
-    <h3>Tambah Data Pasien</h3>
+    <h3>Edit Data Pasien</h3>
 </div>
 
 <div class="card-body">
-    <form action="{{ route('patients.store') }}" method="POST">
+    <form action="{{ route('patients.update', $patients->id) }}" method="POST">
     @csrf
+    @method('PUT')
         <div class="form-group mt-2">
             <label for="code">No. Registrasi</label>
-            <input type="text" class="  -control" name="registration_code">
+            <input type="text" class="form-control" name="registration_code" value="{{ $patients->registration_code }}">
         </div>
         <div class="form-group mt-2">
             <label for="name">Nama Pasien</label>
-            <input type="text" class="form-control" name="name">
+            <input type="text" class="form-control" name="name" value="{{ $patients->name }}">
         </div>
         <div class="form-group mt-2">
             <label for="name">Tanggal Lahir</label>
-            <input type="date" class="form-control" name="birthdate">
+            <input type="date" class="form-control" name="birthdate" value="{{ $patients->birthdate }}">
         </div>
         <div class="form-group mt-2">
             <label for="name">Jenis Kelamin</label>
-            <select class="form-control" name="gender">
+            <select class="form-control" name="gender" value="{{ $patients->gender }}">
                     <option> Pria </option>
                     <option> Wanita </option>
             </select>

@@ -31,16 +31,19 @@
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $patient->registration_code }}</td>
-            <td>{{ $patient->name }}</td>
+            <td>
+            <a href="{{ route('patients.show', $patient->id) }}" title="Lihat Data Dokter">
+                    {{ $patient->name }}
+                </a>
+            </td>
             <td>{{ $patient->birthdate }}</td>
             <td>{{ $patient->gender }}</td>
             <td>{{ $patient->polyclinics->name }}</td>
             <td>{{ $patient->doctors->name }}</td>
             <td>
-                <a href="{{ route('patients.edit', $patient->id) }}" class="btn btn-primary">Edit</a>
-            </td>
-            <td>
                 <form action="{{ route('patients.destroy', $patient->id) }}" method="POST">
+                    <a href="{{ route('patients.show', $patient->id) }}" class="btn btn-warning">Detail</a>
+                    <a href="{{ route('patients.edit', $patient->id) }}" class="btn btn-primary">Edit</a>
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger" type="submit">Delete</button>

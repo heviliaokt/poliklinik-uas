@@ -15,7 +15,7 @@
    Data Poliklinik
 </div>
 
-<div class="card-body">
+<div class="card-body" >
     <table class="table table-striped">
         <tr>
             <th>No</th>
@@ -29,14 +29,12 @@
             <td>{{ $polyclinic->name }}</td>
             <td>
                 <a href="{{ route('polyclinics.show', $polyclinic->id) }}" title="Lihat Data Dokter">
-                    {{ count(array($polyclinic->doctor)) }}
+                    {{ $polyclinic->doctors->count() }}
                 </a>
             </td>
             <td>
-                <a href="{{ route('polyclinics.edit', $polyclinic->id) }}" class="btn btn-primary">Edit</a>
-            </td>
-            <td>
                 <form action="{{ route('polyclinics.destroy', $polyclinic->id) }}" method="POST">
+                    <a href="{{ route('polyclinics.edit', $polyclinic->id) }}" class="btn btn-primary">Edit</a>
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger" type="submit">Delete</button>
