@@ -20,18 +20,14 @@
         <tr>
             <th>No</th>
             <th>Nama Poli</th>
-            <th>Jumlah Dokter</th>
             <th>Aksi</th>
         </tr>
         @foreach ($polyclinics as $polyclinic)
         <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $polyclinic->name }}</td>
-            <td>
-                <a href="{{ route('polyclinics.show', $polyclinic->id) }}" title="Lihat Data Dokter">
-                    {{ $polyclinic->doctors->count() }}
-                </a>
-            </td>
+            <td><a href="{{ route('polyclinics.show', $polyclinic->id) }}" title="Lihat Data Dokter">
+                {{ $polyclinic->name }}
+            </a></td>
             <td>
                 <form action="{{ route('polyclinics.destroy', $polyclinic->id) }}" method="POST">
                     <a href="{{ route('polyclinics.edit', $polyclinic->id) }}" class="btn btn-primary">Edit</a>

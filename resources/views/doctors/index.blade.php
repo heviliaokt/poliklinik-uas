@@ -29,7 +29,8 @@
             <td>{{ $loop->iteration }}</td>
             <td>{{ $doctor->registration_code }}</td>
             <td>{{ $doctor->name }}</td>
-            <td>{{ $doctor->polyclinics->name }}</td>
+            <td><a href="{{ route('polyclinics.show', $doctor->polyclinics->id) }}" title="Lihat Data Poli">
+                {{ $doctor->polyclinics->name }}</td>
             <td>
                 <form action="{{ route('doctors.destroy', $doctor->id) }}" method="POST">
                     <a href="{{ route('doctors.edit', $doctor->id) }}" class="btn btn-primary">Edit</a>
