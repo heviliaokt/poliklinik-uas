@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2023 at 03:36 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Waktu pembuatan: 02 Feb 2023 pada 04.56
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `doctors`
+-- Struktur dari tabel `doctors`
 --
 
 CREATE TABLE `doctors` (
@@ -37,19 +37,16 @@ CREATE TABLE `doctors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `doctors`
+-- Dumping data untuk tabel `doctors`
 --
 
 INSERT INTO `doctors` (`id`, `registration_code`, `name`, `polyclinic_id`, `created_at`, `updated_at`) VALUES
-(2, 'DEA20230125001', 'Elsa Antika', 2, '2023-02-01 01:03:23', '2023-02-01 19:25:46'),
-(3, 'DSH20230125002', 'Salsa Hajari', 2, '2023-02-01 01:05:52', '2023-02-01 19:26:56'),
-(8, 'DHA20230125003', 'Hevi Alia', 1, '2023-02-01 19:26:49', '2023-02-01 19:26:49'),
-(9, 'DDA20230125004', 'Dina Amelia', 1, '2023-02-01 19:27:21', '2023-02-01 19:27:21');
+(1, 'D001', 'drg. Amalia', 1, '2023-01-31 18:23:51', '2023-01-31 18:23:51');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `failed_jobs`
+-- Struktur dari tabel `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -64,7 +61,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -74,7 +71,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -87,7 +84,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `patients`
+-- Struktur dari tabel `patients`
 --
 
 CREATE TABLE `patients` (
@@ -103,18 +100,16 @@ CREATE TABLE `patients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `patients`
+-- Dumping data untuk tabel `patients`
 --
 
 INSERT INTO `patients` (`id`, `registration_code`, `name`, `birthdate`, `gender`, `polyclinic_id`, `doctor_id`, `created_at`, `updated_at`) VALUES
-(1, 'PEA20230125001', 'ElsaAntik', '2001-02-23', 'Wanita', 1, 2, '2023-02-01 01:15:08', '2023-02-01 19:23:55'),
-(2, 'PSH20230125002', 'SalsaBila Hajar', '2000-02-18', 'Wanita', 1, 2, '2023-02-01 03:22:28', '2023-02-01 19:24:38'),
-(3, 'PHA20230125001', 'Hevilia Anggre', '2000-06-02', 'Wanita', 2, 2, '2023-02-01 19:25:17', '2023-02-01 19:25:17');
+(1, 'P001', 'Hevilia Oktaviani', '2002-10-11', 'Wanita', 1, 1, '2023-02-01 19:37:03', '2023-02-01 19:37:03');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `polyclinics`
+-- Struktur dari tabel `polyclinics`
 --
 
 CREATE TABLE `polyclinics` (
@@ -125,17 +120,16 @@ CREATE TABLE `polyclinics` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `polyclinics`
+-- Dumping data untuk tabel `polyclinics`
 --
 
 INSERT INTO `polyclinics` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Poli Gigi', '2023-01-30 16:29:57', '2023-01-30 16:29:57'),
-(2, 'Poli Jantung', '2023-02-01 01:05:22', '2023-02-01 01:05:22');
+(1, 'Poli Gigi', '2023-01-30 16:29:57', '2023-01-30 16:29:57');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -154,7 +148,7 @@ CREATE TABLE `users` (
 --
 
 --
--- Indexes for table `doctors`
+-- Indeks untuk tabel `doctors`
 --
 ALTER TABLE `doctors`
   ADD PRIMARY KEY (`id`),
@@ -162,19 +156,19 @@ ALTER TABLE `doctors`
   ADD KEY `doctors_polyclinic_id_foreign` (`polyclinic_id`);
 
 --
--- Indexes for table `failed_jobs`
+-- Indeks untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `patients`
+-- Indeks untuk tabel `patients`
 --
 ALTER TABLE `patients`
   ADD PRIMARY KEY (`id`),
@@ -183,70 +177,70 @@ ALTER TABLE `patients`
   ADD KEY `patients_doctor_id_foreign` (`doctor_id`);
 
 --
--- Indexes for table `polyclinics`
+-- Indeks untuk tabel `polyclinics`
 --
 ALTER TABLE `polyclinics`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `doctors`
+-- AUTO_INCREMENT untuk tabel `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `failed_jobs`
+-- AUTO_INCREMENT untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `patients`
+-- AUTO_INCREMENT untuk tabel `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `polyclinics`
+-- AUTO_INCREMENT untuk tabel `polyclinics`
 --
 ALTER TABLE `polyclinics`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `doctors`
+-- Ketidakleluasaan untuk tabel `doctors`
 --
 ALTER TABLE `doctors`
   ADD CONSTRAINT `doctors_polyclinic_id_foreign` FOREIGN KEY (`polyclinic_id`) REFERENCES `polyclinics` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `patients`
+-- Ketidakleluasaan untuk tabel `patients`
 --
 ALTER TABLE `patients`
   ADD CONSTRAINT `patients_doctor_id_foreign` FOREIGN KEY (`doctor_id`) REFERENCES `doctors` (`id`) ON DELETE CASCADE,
