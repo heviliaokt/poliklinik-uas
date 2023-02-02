@@ -31,7 +31,7 @@
     </div>
     <div class="form-group mt-2">
         <label for="name">Poli</label>
-            <select class="form-control" name="polyclinic_id" value="{{ $doctors->polyclinic_id }}>
+            <select class="form-control" name="polyclinic_id">
                 @foreach ($polyclinics as $polyclinic)
                     <option value="{{ $polyclinic->id }}"> {{ $polyclinic->name }} </option>
                 @endforeach
